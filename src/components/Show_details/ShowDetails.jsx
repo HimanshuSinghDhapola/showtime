@@ -33,7 +33,7 @@ function ShowDetails() {
                 <span className='sub'>Years active: {data?.premiered} to {(data?.ended)?Date.ended:'Currently Airing'}</span>
                 <h3 className='name'>Summary</h3>
                 <span className='plot'>{ReactHtmlParser(data?.summary)}</span>
-                <Button variant="outlined" size="large">
+                <Button className='btn' variant="outlined" size="large">
                   <Link to={`/${data?.id}/form`} style={{textDecoration: 'none', color: 'white'}}>Book a ticket</Link>
                 </Button>
             </div>

@@ -31,6 +31,7 @@ img{
     box-sizing: border-box;
     padding: 10px;
     max-width: 450px;
+    font-family: 'Poppins';
 }
 
 .show--details > * {
@@ -54,9 +55,13 @@ span {
 
 .sub{
     color: #7F7A7E;
+    font-size: small;
 }
 
 .plot{
     color: #EEEDEB;
+    font-size: smaller;
+    font-weight: 400;
     margin-bottom: 2px;
+    line-height: 1rem;
 }

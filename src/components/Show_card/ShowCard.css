@@ -22,10 +22,7 @@
 
 .card--details{
     height: 100%;
-}
-
-.card--details > *  {
-    margin-bottom: 5px;
+    font-family: Poppins;
 }
 
 .show--name, .rating{
@@ -34,4 +31,5 @@
 
 .genre, .network{
     color:#60687E;
+    font-weight: 400;
 }
