@@ -1,0 +1,62 @@
+section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.8;
+}
+
+.show{
+    min-width: 450px;
+    height: 98vh;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px black;
+    background-color: rgb(0 0 0 / 70%);
+    overflow: hidden;
+    color: var(--light);
+}
+
+img{
+    background-size: cover;
+    width: 450px;
+    height: 45vh;
+    margin-bottom: 5px;
+}
+
+.show--details{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 10px;
+    max-width: 450px;
+}
+
+.show--details > * {
+    margin-bottom: 2px;
+}
+
+span {
+    margin-bottom: 2px;
+}
+
+.name{
+    color: white;
+}
+
+.runtime{
+    border: solid 1px #EEEDEB;
+    padding: 1px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.sub{
+    color: #7F7A7E;
+}
+
+.plot{
+    color: #EEEDEB;
+    margin-bottom: 2px;
+}

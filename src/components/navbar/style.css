@@ -1,0 +1,11 @@
+.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    color: var(--light);
+    height: 12vh;
+    font-weight: 600;
+    letter-spacing: 6px;
+    background-color: var(--dark);
+}

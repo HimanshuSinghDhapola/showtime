@@ -1,0 +1,11 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --dark: #151515;
+    --dark1: #222222;
+    --dark2: #333333;
+    --light: #FFFFFF;
+    --light1: #EEEEEE;
+}

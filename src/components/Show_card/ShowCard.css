@@ -1,0 +1,37 @@
+.card{
+    display: flex;
+    align-items: end;
+    background-color: rgb(0 0 0 / 70%);
+    width: 450px;
+    height: 150px;
+    gap: 10%;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 50px;
+}
+
+.card--img{
+    align-items: baseline;
+}
+
+.card--img > img{
+    height: 200px;
+    width: auto;
+    border-radius: 10px;
+}
+
+.card--details{
+    height: 100%;
+}
+
+.card--details > *  {
+    margin-bottom: 5px;
+}
+
+.show--name, .rating{
+    color: white;
+}
+
+.genre, .network{
+    color:#60687E;
+}

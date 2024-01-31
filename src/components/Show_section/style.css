@@ -1,0 +1,14 @@
+.display{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.show--section{
+    background-position: center;
+    background-size: cover;
+}
+
+.show--section > .display{
+    padding: 20px;
+}
