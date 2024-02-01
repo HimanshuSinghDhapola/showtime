@@ -2,10 +2,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3em;
+    font-size: 3rem;
     color: var(--light);
     height: 12vh;
+    width: 100%;
     font-weight: 600;
     letter-spacing: 6px;
     background-color: var(--dark);
+}
+
+@media (max-width: 600px) {
+    .navbar{
+        font-size: 2rem;
+        height: 8vh;
+    }
 }

@@ -1,107 +1,100 @@
-import React from 'react'
-import './Form.css';
-import useFetchData from '../../hooks/fetch-data';
-import {useParams} from 'react-router-dom';
-import Loading from '../loading/Loading';
+import React, { useEffect } from "react";
+import "./Form.css";
+import background from "../../assets/background.png";
+import { useParams } from "react-router-dom";
+import useFetchData from "../../hooks/fetch-data.js";
+import Loading from "../loading/Loading.jsx";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
-function Form() {
-  
-  const {id} = useParams();
-  const {data, loading} = useFetchData(`https://api.tvmaze.com/shows/${id}`)
+export default function SignUp(){
+    const {id} = useParams();
+    const {data, loading} = useFetchData(`https://api.tvmaze.com/shows/${id}`)
 
-  if (loading){
-    return(<Loading/>);
-  }
-  else{
-    return (
-        <div className='form--body'>
-            <div class="container">
-            <form>
-                <div class="row">
-                <h4>Account</h4>
-                <div class="input-group input-group-icon">
-                    <input type="text" placeholder="Full Name"/>
-                    <div class="input-icon"><i class="fa fa-user"></i></div>
-                </div>
-                <div class="input-group input-group-icon">
-                    <input type="email" placeholder="Email Adress"/>
-                    <div class="input-icon"><i class="fa fa-envelope"></i></div>
-                </div>
-                <div class="input-group input-group-icon">
-                    <input type="text" value={data?.name} readOnly/>
-                    <div class="input-icon"><i class="fa fa-key"></i></div>
-                </div>
-                </div>
-                <div class="row">
-                <div class="col-half">
-                    <h4>Booking Date</h4>
-                    <div class="input-group">
-                    <div class="col-third">
-                        <input type="text" placeholder="DD"/>
-                    </div>
-                    <div class="col-third">
-                        <input type="text" placeholder="MM"/>
-                    </div>
-                    <div class="col-third">
-                        <input type="text" placeholder="YYYY"/>
-                    </div>
-                    </div>
-                </div>
-                <div class="col-half">
-                    <h4>Gender</h4>
-                    <div class="input-group">
-                    <input id="gender-male" type="radio" name="gender" value="male"/>
-                    <label for="gender-male">Male</label>
-                    <input id="gender-female" type="radio" name="gender" value="female"/>
-                    <label for="gender-female">Female</label>
-                    </div>
-                </div>
-                </div>
-                <div class="row">
-                <h4>Payment Details</h4>
-                <div class="input-group">
-                    <input id="payment-method-card" type="radio" name="payment-method" value="card" checked="true"/>
-                    <label for="payment-method-card"><span><i class="fa fa-cc-visa"></i>Credit Card</span></label>
-                    <input id="payment-method-paypal" type="radio" name="payment-method" value="paypal"/>
-                    <label for="payment-method-paypal"> <span><i class="fa fa-cc-paypal"></i>Paypal</span></label>
-                </div>
-                <div class="input-group input-group-icon">
-                    <input type="text" placeholder="Card Number"/>
-                    <div class="input-icon"><i class="fa fa-credit-card"></i></div>
-                </div>
-                <div class="col-half">
-                    <div class="input-group input-group-icon">
-                    <input type="text" placeholder="Card CVC"/>
-                    <div class="input-icon"><i class="fa fa-user"></i></div>
-                    </div>
-                </div>
-                <div class="col-half">
-                    <div class="input-group">
-                    <select>
-                        <option>01 Jan</option>
-                        <option>02 Jan</option>
-                    </select>
-                    <select>
-                        <option>2015</option>
-                        <option>2016</option>
-                    </select>
-                    </div>
-                </div>
-                </div>
-                <div class="row">
-                <h4>Terms and Conditions</h4>
-                <div class="input-group">
-                    <input id="terms" type="checkbox"/>
-                    <label for="terms">I accept the terms and conditions for signing up to this service, and hereby confirm I have read the privacy policy.</label>
-                </div>
-                </div>
-                </form>
-            </div>
-        </div>
+    const[formData, setformData] = React.useState({
+        userName: "",
+        email: "",
+        date: ""
+    })
+
+    useEffect (() => {
+        if(!loading){
+            setformData({...formData, 
+                movie: data.name
+            })
+        }
+    }, [loading])
+
+    function handleChange(event){
+        const {name, value} = event.target;
+        setformData(prevformData => {
+            return{
+                ...prevformData,
+                [name]: value
+            }
+        })
+    }
+
+    function handleSubmit(event){
+        event.preventDefault();
+        // console.log(formData);
+        const storedFormData = JSON.parse(localStorage.getItem('formData')) || [];
+        if(storedFormData.map((v) => {return v.email == formData.email && v.userName == formData.user && v.date == formData.date && v.movie == formData.movie})){
+            alert("Duplicate record");
+        }else{
+            storedFormData.push(formData);
+            localStorage.setItem('formData', JSON.stringify(storedFormData));
+        }
         
-      )
-  }
-  
-}
+    }
 
-export default Form
+    if (loading){
+        return (<Loading/>);
+    }
+    return(
+        <div className="form-container" style={{backgroundImage: `url(${background})`}}>
+            <form style={{backgroundImage: `url(${background})`}} onSubmit={handleSubmit}>
+                <i className="material-icons">account_circle
+                    <input
+                        type="text"
+                        placeholder="Username"
+                        id="userName"
+                        onChange={handleChange}
+                        name="userName"
+                        value={formData.userName}
+                    />
+                </i>
+                <i class="material-icons">mail
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        id="emailId"
+                        onChange={handleChange}
+                        name="email"
+                        value={formData.email}
+                    />
+                </i>
+                <i className="material-icons">movie
+                    <input
+                        type="text"
+                        id="movie"
+                        onChange={handleChange}
+                        name="movie"
+                        value={formData.movie}
+                        readOnly
+                    />
+                </i>
+                <i className="material-icons">calendar_month
+                    <input
+                        type="date"
+                        placeholder="Select the Date"
+                        id="date"
+                        onChange={handleChange}
+                        name="date"
+                        value={formData.date}
+                    />
+                </i>
+                <i className="material-icons">input <button>Book ticket</button> </i>
+            </form>
+        </div>
+    )
+}

@@ -2,7 +2,7 @@
     display: flex;
     align-items: end;
     background-color: rgb(0 0 0 / 70%);
-    width: 450px;
+    min-width: 400px;
     height: 150px;
     gap: 10%;
     border-radius: 10px;
@@ -32,4 +32,25 @@
 .genre, .network{
     color:#60687E;
     font-weight: 400;
+}
+
+.status{
+    color: #F0A500;
+}
+
+@media (max-width: 600px){
+    .card{
+        width: 60%;
+        height: fit-content;
+        align-items: center;
+        gap: 10px;
+        margin-top: 15px;
+    }
+    .card--img > img{
+        height: 135px;
+    }
+    .card--details{
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 15px;
+    }
 }

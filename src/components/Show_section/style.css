@@ -8,8 +8,18 @@
 .show--section{
     background-position: center;
     background-size: cover;
+    overflow: hidden;
 }
 
 .show--section > .display{
     padding: 20px;
+}
+
+@media (max-width: 600px) {
+    .display{
+        gap: 0;
+    }
+    .show--section > .display{
+        padding: 0;
+    }
 }
