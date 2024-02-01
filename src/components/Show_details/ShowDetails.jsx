@@ -30,11 +30,11 @@ function ShowDetails() {
             <div className='show--details'>
                 <h2 className='name'>{data?.name}</h2>
                 <span className='sub'>{genresArr.join(", ")}   <span className='runtime'>{data?.averageRuntime} min</span></span>
-                <span className='sub'>Years active: {data?.premiered} to {(data?.ended)?Date.ended:'Currently Airing'}</span>
+                <span className='sub'>Years active: {data?.premiered} to {(data?.ended)?data.ended:'Currently Airing'}</span>
                 <h3 className='name'>Summary</h3>
                 <span className='plot'>{ReactHtmlParser(data?.summary)}</span>
-                <Button className='btn' variant="outlined" size="large">
-                  <Link to={`/${data?.id}/form`} style={{textDecoration: 'none', color: 'white'}}>Book a ticket</Link>
+                <Button className='btn' variant="outlined" size="large" sx={{mt: "10px", backgroundColor: "#333"}}>
+                  <Link to={`/${data?.id}/form`} style={{textDecoration: 'none', color: '#99BC85', fontSize: '20px', fontWeight: 'bold'}}>Book a ticket</Link>
                 </Button>
             </div>
         </div>
