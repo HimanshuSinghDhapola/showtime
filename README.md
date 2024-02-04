@@ -1,8 +1,7 @@
-# React + Vite
+# SHOWTIME
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+  In this project, I have made a website which fetches data from an API and lists the shows mentioned in the API after clicking on the card the details of the show are provided      with an option of booking a ticket for that show.
 
-Currently, two official plugins are available:
+  I have used ReactJS for the front end and react-router-dom for routing purposes along the different web pages.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  Link to website: https://chipper-phoenix-ec118c.netlify.app/
